@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training & Educational Services - EraServices Event Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #FF6B35;
+            --secondary-color: #004E89;
+            --accent-color: #F77F00;
+            --dark-color: #1A1A2E;
+            --light-color: #F5F5F5;
+            --text-color: #333;
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+       /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background: var(--dark-color);
+            color: white;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .header-top-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+        }
+
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .header-main {
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.6rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+    
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(247, 127, 0, 0.9)),
+                url('https://picsum.photos/seed/education-hero/1920/600') center/cover;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-start;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        /* Service Detail */
+        .service-detail {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .service-detail:nth-child(even) {
+            background: var(--light-color);
+        }
+
+        .service-detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .service-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .service-hero-text h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-hero-text p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .service-hero-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .service-features {
+            margin-bottom: 3rem;
+        }
+
+        .service-features h3 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-text p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .service-process {
+            margin-bottom: 3rem;
+        }
+
+        .service-process h3 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .process-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--primary-color);
+        }
+
+        .process-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .process-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .process-content {
+            width: 45%;
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+        }
+
+        .process-number {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        .service-pricing {
+            margin-bottom: 3rem;
+        }
+
+        .service-pricing h3 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            border: 2px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .pricing-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .pricing-title {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            color: #666;
+        }
+
+        .pricing-features li i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 4rem 0;
+            background: var(--light-color);
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+    
+
+        .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    position: relative;
+    width: 100%;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background: #fff;
+    cursor: pointer;
+}
+
+.gallery-item::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%; /* 16:9 ratio */
+}
+
+.gallery-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-overlay p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+        }
+
+        /* Lightbox Modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-caption {
+            color: white;
+            text-align: center;
+            margin-top: 1rem;
+            max-width: 80%;
+        }
+
+        .lightbox-caption h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-close:hover {
+            color: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 1rem;
+            transition: var(--transition);
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-nav:hover {
+            color: var(--primary-color);
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .lightbox-prev {
+            left: -60px;
+        }
+
+        .lightbox-next {
+            right: -60px;
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            font-size: 1rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-white:hover {
+            background: var(--light-color);
+        }
+
+        .btn-transparent {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-transparent:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-column p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .service-hero {
+                grid-template-columns: 1fr;
+            }
+
+            .process-item {
+                flex-direction: column !important;
+            }
+
+            .process-content {
+                width: 100%;
+            }
+
+            .process-timeline::before {
+                left: 20px;
+            }
+
+            .process-number {
+                left: 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            /* Lightbox responsive adjustments */
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+
+            .lightbox-prev {
+                left: 10px;
+            }
+
+            .lightbox-next {
+                right: 10px;
+            }
+
+            .lightbox-close {
+                top: 10px;
+                right: 10px;
+            }
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--dark-color);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 3000;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.success {
+            background: #4CAF50;
+        }
+
+        .toast.error {
+            background: #f44336;
+        }
+
+        .price-table-wrapper {
+            overflow-x: auto;
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .price-table thead {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+        }
+
+        .price-table th,
+        .price-table td {
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .price-table th {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .price-table tbody tr {
+            border-bottom: 1px solid #eee;
+            transition: background 0.3s ease;
+        }
+
+        .price-table tbody tr:hover {
+            background: #fff5f2;
+        }
+
+        .price-table tbody td:last-child {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+
+            .price-table th,
+            .price-table td {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="header-top-content">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> +91 9045297992</span>
+                    <span><i class="fas fa-envelope"></i> info@eraservices.in</span>
+                </div>
+                <div class="social-links">
+                     <a href="https://www.facebook.com/61587120426819/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/eraservices_/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="./logoo.png" width="120px" height="120px">
+                </a>
+                <nav>
+                    <ul id="navMenu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#gallery">Gallery</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="mobile-menu" id="mobileMenu">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Training & Educational Services</h1>
+            <p>Transform learning experiences with our comprehensive training and course development services. From professional certification programs to skill development workshops, we deliver impactful, career-oriented learning solutions that empower students and professionals</p>
+            
+        </div>
+    </section>
+
+    <!-- Service Hero -->
+    <section class="service-detail">
+        <div class="service-detail-container">
+            <div class="service-hero">
+                <div class="service-hero-text">
+                   <h2>Creating Exceptional Learning Experiences</h2>
+
+<p>At EraServices, we specialize in delivering high-quality training programs that inspire, engage, and empower learners. Our team understands the evolving needs of students and professionals, designing industry-relevant courses that combine practical knowledge with real-world application.
+
+We are committed to providing structured learning, expert guidance, and measurable outcomes that help our learners achieve their academic and career goals.</p>
+<i class="fas fa-laptop"></i> Online Class
+<br><br>
+                    <div class="hero-buttons">
+                        <a href="index.html#contact" class="btn btn-primary">Book Now</a>
+                        
+                    </div>
+                </div>
+                <div class="service-hero-image">
+                    <img src="https://res.cloudinary.com/df0lalbsd/image/upload/v1770880407/no_logo_banner_1_r0zjfv.jpg" alt="Education Event Planning">
+                </div>
+            </div>
+            <section id="pricing" style="padding:3rem 0;">
+                <div style="max-width:1200px;margin:auto;padding:0 1rem;">
+                    <h3 style="text-align:center;font-size:2.3rem;color:var(--dark-color);margin-bottom:1rem;">
+                       Training & Educational Service Price List
+                    </h3>
+                    <p style="text-align:center;color:#666;margin-bottom:2rem;">
+                        Transparent pricing for all training & educational services
+                    </p>
+
+                    <div class="price-table-wrapper">
+                        <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Course Name</th>
+                                    <th>Duration</th>
+                                    <th>Price (₹)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Digital Marketing</td>
+                                    <td>3 Months</td>
+
+                                    <td>5,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Java</td>
+                                    <td>6 Months</td>
+
+                                    <td>7,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Python</td>
+                                    <td>6 Months</td>
+
+                                    <td>7,000</td>
+                                </tr>
+                                <tr>
+                                    <td>CCNA</td>
+                                    <td>2 Months</td>
+
+                                    <td>2,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Firewall (Fortigate, ASA)</td>
+                                    <td>3 Months</td>
+
+                                    <td>10,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Web Development</td>
+                                    <td>6 Months</td>
+
+                                    <td>8,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Ethical Hacking</td>
+                                    <td>6 Months</td>
+
+                                    <td>15,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p style="text-align:center;margin-top:1.5rem;color:#777;font-style:italic;">
+                        <i class="fas fa-info-circle"></i> Prices are exclusive of taxes. Custom packages available.
+                    </p>
+                </div>
+            </section>
+
+            <div class="service-features">
+                <h3>What We Offer</h3>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="feature-text">
+                             <h4>Professional Certification Programs</h4>
+                <p>Industry-recognized certification courses designed to build practical skills and enhance career opportunities.</p>
+                            
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Skill Development Training</h4>
+                <p>Hands-on training programs focused on real-world skills and job-ready competencies for students and professionals.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="feature-text">
+                             <h4>Workshops & Masterclasses</h4>
+                <p>Interactive workshops and expert-led masterclasses offering in-depth learning and practical experience.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Corporate & Campus Training</h4>
+                <p>Customized training solutions for colleges, universities, and corporate organizations to upskill students and employees.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Placement Assistance & Career Support</h4>
+                <p>Resume building, interview preparation, soft skills development, and dedicated placement assistance.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Online & Hybrid Learning Programs</h4>
+                <p>Flexible online and hybrid courses powered by modern platforms, enabling learning anytime, anywhere.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-process">
+                <h3>Our Planning Process</h3>
+                <div class="process-timeline">
+                    <div class="process-item">
+                        <div class="process-content">
+                            <h4>Initial Consultation</h4>
+                            <p>
+                                Meet with our course specialists to discuss your learning objectives,
+                                target audience, skill level, and expected outcomes. We analyze
+                                your requirements to build a structured learning roadmap.
+                            </p>
+                        </div>
+                        <div class="process-number">1</div>
+                    </div>
+                    <div class="process-item">
+                        <div class="process-content">
+                            <h4>Course Design & Curriculum Development</h4>
+                <p>
+                    We create a comprehensive course plan including structured modules,
+                    engaging lessons, practical assignments, interactive activities,
+                    and certification planning (if required).
+                </p>
+                        </div>
+                        <div class="process-number">2</div>
+                    </div>
+                    <div class="process-item">
+                        <div class="process-content">
+                            <h4>Content Creation & Platform Setup</h4>
+                <p>
+                    High-quality video lectures, study materials, presentations,
+                    quizzes, and assignments are developed. We also configure the
+                    course on your preferred LMS or training platform.
+                </p>
+                        </div>
+                        <div class="process-number">3</div>
+                    </div>
+                    <div class="process-item">
+                        <div class="process-content">
+                            <h4>Course Delivery & Support</h4>
+                <p>
+                    Professional instructors deliver the course through online or
+                    offline modes with mentorship, doubt-solving sessions,
+                    performance tracking, and certification upon completion.
+                </p>
+                        </div>
+                        <div class="process-number">4</div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="gallery-container">
+            <h3 style="text-align: center; font-size: 2rem; color: var(--dark-color); margin-bottom: 2rem;">Education
+                Event Gallery</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-index="0">
+                    <img src="https://res.cloudinary.com/df0lalbsd/image/upload/v1770880407/no_logo_banner_1_r0zjfv.jpg" alt="online classes">
+                    <div class="gallery-overlay">
+                        <h3>Online Class</h3>
+                        <p>Digital Marketing</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="1">
+                    <img src="https://res.cloudinary.com/df0lalbsd/image/upload/v1770881184/no_logo_banner_2_xy2cjt.jpg">
+                    <div class="gallery-overlay">
+                        <h3>Online Class</h3>
+                        <p>Programming</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-index="2">
+                    <img src="https://res.cloudinary.com/df0lalbsd/image/upload/v1770881199/no_logo_banner_3_mjp2go.jpg" alt="online classes">
+                    <div class="gallery-overlay">
+                        <h3>Online Class</h3>
+                        <p>Networking</p>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-content">
+           <h2>Ready to Build a Successful Learning Experience?</h2>
+
+<p>Let our expert team help you design and deliver a high-impact training program that inspires learners, builds practical skills, and drives career success.</p>
+            <div class="cta-buttons">
+                <a href="#pricing" class="btn btn-white">Get Started</a>
+                <a href="index.html#contact" class="btn btn-transparent">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+     <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                   <h3>About Era Services</h3>
+                <p>Welcome to Eraservices - where passion meets precision, and creativity meets craftsmanship. We're not just a service provider. We're your one-stop destination for transforming moments, mending memories, and making spaces more beautiful.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/61587120426819/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/eraservices_/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="wedding.html">Wedding Planning</a></li>
+                    <li><a href="plumbing.html">Plumbing Services</a></li>
+                    <li><a href="light-fitting.html">Electronic Repair</a></li>
+                    <li><a href="home-interior-designing.html">Home Interior Design</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i>Wadkar Mala, Sai Colony, Hadapsar, Pune, Autadwadi Handewadi, Maharashtra - 411028</p>
+                <p><i class="fas fa-phone"></i>+919045297992</p>
+                <p><i class="fas fa-envelope"></i>info@eraservices.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; Eraservices. All rights reserved | Designed & Maintained By: <a
+                    href="https://www.whitedavid23.org"
+                    style="color: var(--primary-color); text-decoration: none;">Whitedavid23 Team</a> |
+                Privacy Policy |
+                Terms of Service</p>
+        </div>
+    </footer>
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <div class="lightbox-content">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <span class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">&#10094;</span>
+            <img class="lightbox-image" id="lightboxImage" src="" alt="">
+            <span class="lightbox-nav lightbox-next" onclick="changeImage(1)">&#10095;</span>
+            <div class="lightbox-caption">
+                <h3 id="lightboxTitle"></h3>
+                <p id="lightboxDescription"></p>
+            </div>
+            <div class="lightbox-counter">
+                <span id="lightboxCounter"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // Gallery data
+        const galleryImages = [
+            {
+                src: "https://res.cloudinary.com/df0lalbsd/image/upload/v1770880407/no_logo_banner_1_r0zjfv.jpg",
+                title: "Online Class",
+                description: "Digital Marketing"
+            },
+            {
+                src: "https://res.cloudinary.com/df0lalbsd/image/upload/v1770881184/no_logo_banner_2_xy2cjt.jpg",
+                title: "Online Class",
+                description: "Programming"
+            },
+            {
+                src: "https://res.cloudinary.com/df0lalbsd/image/upload/v1770881199/no_logo_banner_3_mjp2go.jpg",
+                title: "Online Class",
+                description: "Networking"
+            },
+        ];
+
+        let currentImageIndex = 0;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function () {
+            setupEventListeners();
+        });
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Mobile menu
+            const mobileMenu = document.getElementById('mobileMenu');
+            const navMenu = document.getElementById('navMenu');
+
+            mobileMenu.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+
+            // Gallery items click event
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    currentImageIndex = parseInt(this.getAttribute('data-index'));
+                    openLightbox();
+                });
+            });
+
+            // Close lightbox on background click
+            const lightboxModal = document.getElementById('lightboxModal');
+            lightboxModal.addEventListener('click', function (e) {
+                if (e.target === lightboxModal) {
+                    closeLightbox();
+                }
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function (e) {
+                if (document.getElementById('lightboxModal').classList.contains('active')) {
+                    if (e.key === 'ArrowLeft') {
+                        changeImage(-1);
+                    } else if (e.key === 'ArrowRight') {
+                        changeImage(1);
+                    } else if (e.key === 'Escape') {
+                        closeLightbox();
+                    }
+                }
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Lightbox functions
+        function openLightbox() {
+            const lightboxModal = document.getElementById('lightboxModal');
+            updateLightboxImage();
+            lightboxModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
+        }
+
+        function closeLightbox() {
+            const lightboxModal = document.getElementById('lightboxModal');
+            lightboxModal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+
+            // Wrap around if we go beyond the bounds
+            if (currentImageIndex < 0) {
+                currentImageIndex = galleryImages.length - 1;
+            } else if (currentImageIndex >= galleryImages.length) {
+                currentImageIndex = 0;
+            }
+
+            updateLightboxImage();
+        }
+
+        function updateLightboxImage() {
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxTitle = document.getElementById('lightboxTitle');
+            const lightboxDescription = document.getElementById('lightboxDescription');
+            const lightboxCounter = document.getElementById('lightboxCounter');
+
+            const image = galleryImages[currentImageIndex];
+
+            // Fade out effect
+            lightboxImage.style.opacity = '0';
+
+            setTimeout(() => {
+                lightboxImage.src = image.src;
+                lightboxTitle.textContent = image.title;
+                lightboxDescription.textContent = image.description;
+                lightboxCounter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+
+                // Fade in effect
+                lightboxImage.style.opacity = '1';
+            }, 200);
+        }
+
+        // Get quote function
+        function getQuote() {
+            showToast('Quote request for education event service. Our team will contact you soon!', 'success');
+        }
+
+        // Select package function
+        function selectPackage(packageType) {
+            showToast(`${packageType.charAt(0).toUpperCase() + packageType.slice(1)} package selected. Redirecting to checkout...`, 'success');
+            setTimeout(() => {
+                showToast('Checkout page would open here', 'success');
+            }, 2000);
+        }
+
+        // Toast notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = `toast ${type}`;
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Mock modal functions
+        function openLoginModal() {
+            showToast('Login modal would open here', 'success');
+        }
+
+        function openRegisterModal() {
+            showToast('Registration modal would open here', 'success');
+        }
+    </script>
+</body>
+
+</html>

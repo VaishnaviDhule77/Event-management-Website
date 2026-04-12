@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Party Planning - Era Services Event Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #FF6B35;
+            --secondary-color: #004E89;
+            --accent-color: #F77F00;
+            --dark-color: #1A1A2E;
+            --light-color: #F5F5F5;
+            --text-color: #333;
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background: var(--dark-color);
+            color: white;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .header-top-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .header-main {
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.6rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: var(--light-color);
+            padding: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumb-list {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb-item {
+            color: #666;
+        }
+
+        .breadcrumb-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(247, 127, 0, 0.9)),
+                url('https://picsum.photos/seed/birthday-hero/1920/600') center/cover;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-start;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        /* Service Detail */
+        .service-detail {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .service-detail:nth-child(even) {
+            background: var(--light-color);
+        }
+
+        .service-detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .service-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .service-hero-text h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-hero-text p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .service-hero-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .service-features {
+            margin-bottom: 3rem;
+        }
+
+        .service-features h3 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-text p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Themes Section */
+        .themes-section {
+            padding: 4rem 0;
+            background: var(--light-color);
+        }
+
+        .themes-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .theme-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .theme-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .theme-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .theme-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .theme-card:hover .theme-image img {
+            transform: scale(1.1);
+        }
+
+        .theme-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .theme-card:hover .theme-overlay {
+            opacity: 1;
+        }
+
+        .theme-age {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .theme-details {
+            padding: 1.5rem;
+        }
+
+        .theme-name {
+            font-size: 1.3rem;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .theme-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .theme-features {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .theme-feature-tag {
+            background: var(--light-color);
+            color: #666;
+            padding: 0.2rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 4rem 0;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-item {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-item h4 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 4rem 0;
+            background: var(--light-color);
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            height: 250px;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            opacity: 0;
+            transform: translateY(50px) scale(0.9);
+        }
+
+        .gallery-item.animate {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.05) rotate(1deg);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.4), 0 0 20px rgba(255, 107, 53, 0.2);
+            z-index: 10;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15) rotate(-1deg);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-overlay p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+        }
+
+       .price-table-wrapper {
+    overflow-x: auto;
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.price-table thead {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+}
+
+.price-table th,
+.price-table td {
+    padding: 1rem;
+    text-align: left;
+}
+
+.price-table th {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.price-table tbody tr {
+    border-bottom: 1px solid #eee;
+    transition: background 0.3s ease;
+}
+
+.price-table tbody tr:hover {
+    background: #fff5f2;
+}
+
+.price-table tbody td:last-child {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .price-table th,
+    .price-table td {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .testimonials-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .testimonials-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .testimonial-content {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .testimonial-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .testimonial-text {
+            flex: 1;
+        }
+
+        .testimonial-text p {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .testimonial-rating {
+            color: #ffd700;
+            margin-top: 0.5rem;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 4rem 0;
+            background: var(--light-color);
+        }
+
+        .process-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .process-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .process-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .process-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-description {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 4rem 0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .faq-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .faq-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: var(--light-color);
+        }
+
+        .faq-question h3 {
+            color: var(--dark-color);
+            font-size: 1.1rem;
+        }
+
+        .faq-toggle {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .faq-question.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1.5rem;
+            color: #666;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-white:hover {
+            background: var(--light-color);
+        }
+
+        .btn-transparent {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-transparent:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-column p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+        }
+
+        /* Lightbox Modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-modal.active .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-image {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+            color: white;
+            padding: 2rem 1rem 1rem;
+            text-align: center;
+            border-bottom-left-radius: var(--border-radius);
+            border-bottom-right-radius: var(--border-radius);
+        }
+
+        .lightbox-caption h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .lightbox-caption p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            z-index: 2001;
+        }
+
+        .lightbox-close:hover {
+            background: var(--primary-color);
+            transform: rotate(90deg);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            z-index: 2001;
+        }
+
+        .lightbox-nav:hover {
+            background: var(--primary-color);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .service-hero {
+                grid-template-columns: 1fr;
+            }
+
+            .themes-grid,
+            .services-grid,
+            .testimonials-grid,
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .testimonial-image {
+                margin-bottom: 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+
+            .lightbox-prev {
+                left: 10px;
+            }
+
+            .lightbox-next {
+                right: 10px;
+            }
+
+            .lightbox-close {
+                width: 30px;
+                height: 30px;
+                font-size: 1.5rem;
+                top: 10px;
+                right: 10px;
+            }
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--dark-color);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 3000;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.success {
+            background: #4CAF50;
+        }
+
+        .toast.error {
+            background: #f44336;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #FF6B35, #F77F00);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(100px);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: linear-gradient(135deg, #F77F00, #FF6B35);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+        }
+
+        .back-to-top:active {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="header-top-content">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> +91 9045297992</span>
+                    <span><i class="fas fa-envelope"></i> info@eraservices.in</span>
+                </div>
+                <div class="social-links">
+                   <a href="https://www.facebook.com/61587120426819/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/eraservices_/"><i class="fab fa-instagram"></i></a>
+
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="./logoo.png" width="120px" height="120px">
+                </a>
+                <nav>
+                    <ul id="navMenu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#gallery">Gallery</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </nav>
+ <div class="mobile-menu" id="mobileMenu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+           
+        </div>
+        
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <ul class="breadcrumb-list">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="services.html">Services</a></li>
+                <li class="breadcrumb-item">Birthday Parties</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Birthday Party Planning</h1>
+            <p>Create magical birthday celebrations with our creative party planning services. From kids' parties to
+                milestone birthdays, we make every celebration special and memorable.</p>
+            
+        </div>
+    </section>
+
+    <!-- Service Hero -->
+    <section class="service-detail">
+        <div class="service-detail-container">
+            <div class="service-hero">
+                <div class="service-hero-text">
+                    <h2>Celebrate in Style</h2>
+                    <p>At Era Services, we believe every birthday deserves to be celebrated in style. Our creative team
+                        transforms ordinary spaces into extraordinary party venues, ensuring your special day is filled
+                        with joy, laughter, and unforgettable memories.</p>
+                    <div class="hero-buttons">
+                        <a href="index.html#contact" class="btn btn-primary">Book Now</a>
+                       
+                    </div>
+                </div>
+                <div class="service-hero-image">
+                    <img src="https://res.cloudinary.com/df0lalbsd/image/upload/v1770212334/WhatsApp_Image_2026-01-22_at_7.35.06_PM_ucztxz.jpg" alt="Birthday Parties">
+                </div>
+            </div>
+<section id="pricing" style="padding:3rem 0;">
+    <div style="max-width:1200px;margin:auto;padding:0 1rem;">
+        <h3 style="text-align:center;font-size:2.3rem;color:var(--dark-color);margin-bottom:1rem;">
+            Birthday Price List
+        </h3>
+        <p style="text-align:center;color:#666;margin-bottom:2rem;">
+            Transparent pricing for all birthday services
+        </p>
+
+        <div class="price-table-wrapper">
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Price (₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Birthday Party Setup(Starting From)</td>
+                        <td>2,500</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p style="text-align:center;margin-top:1.5rem;color:#777;font-style:italic;">
+            <i class="fas fa-info-circle"></i> Prices are exclusive of taxes. Custom packages available.
+        </p>
+    </div>
+</section>
+
+            <div class="service-features">
+                <h3>Birthday Services</h3>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Theme Parties</h4>
+                            <p>Custom themes and decorations for all ages, from princess parties to superhero adventures
+                            </p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Entertainment</h4>
+                            <p>Magicians, clowns, DJs, and live performers to keep everyone entertained</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-birthday-cake"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Cake & Catering</h4>
+                            <p>Custom cakes and catering for your celebration with delicious menu options</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Return Gifts</h4>
+                            <p>Curated return gifts for your guests to take home wonderful memories</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Photography</h4>
+                            <p>Professional photography and videography to capture every precious moment</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="services-container">
+            <h3 style="text-align: center; font-size: 2rem; color: var(--dark-color); margin-bottom: 2rem;">Additional
+                Services</h3>
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h4>Catering</h4>
+                    <p>Delicious food options for all dietary preferences and party sizes</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h4>Entertainment</h4>
+                    <p>Live bands, DJs, and performers to keep the party going</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h4>Photography</h4>
+                    <p>Capture every special moment with professional photography</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h4>Transportation</h4>
+                    <p>Party bus transportation for safe and fun group travel</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h4>Face Painting</h4>
+                    <p>Professional face painters for kids and themed events</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h4>Game Masters</h4>
+                    <p>Entertainers who organize games and activities for children</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="process-container">
+            <div class="process-header">
+                <h2>Our Birthday Party Planning Process</h2>
+                <p>From concept to celebration, we handle every detail to ensure a stress-free experience</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Consultation</h3>
+                    <p>We meet with you to understand your vision, preferences, and budget</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Theme Selection</h3>
+                    <p>Choose from our curated themes or create a custom one just for you</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Planning</h3>
+                    <p>We handle all logistics, from venue booking to vendor coordination</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Execution</h3>
+                    <p>Our team manages the entire event, ensuring everything runs smoothly</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="gallery-container">
+            <h3 style="text-align: center; font-size: 2rem; color: var(--dark-color); margin-bottom: 2rem;">Birthday
+                Gallery</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox(0)">
+                    <img src="https://res.cloudinary.com/df0lalbsd/image/upload/v1770212334/WhatsApp_Image_2026-01-22_at_7.35.06_PM_ucztxz.jpg" alt="Birthday">
+                    <div class="gallery-overlay">
+                        <h3>Sweet 10 Celebration</h3>
+                        <p>Pune, 2024</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(1)">
+                    <img src="https://res.cloudinary.com/df0lalbsd/image/upload/v1769059219/WhatsApp_Image_2026-01-20_at_3.56.39_AM_v2amok.jpg" alt="Birthday">
+                    <div class="gallery-overlay">
+                        <h3>Kids Superhero Party</h3>
+                        <p>Pune, 2024</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(2)">
+                    <img src="https://res.cloudinary.com/df0lalbsd/image/upload/v1756200727/1_dkt5uw.jpg" alt="Birthday">
+                    <div class="gallery-overlay">
+                        <h3>Princess Birthday</h3>
+                        <p>Pune, 2024</p>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+   
+
+
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>How far in advance should I book a birthday party?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We recommend booking at least 4-6 weeks in advance for larger parties and 2-3 weeks for
+                            smaller gatherings. This allows us to secure your preferred date and ensure all vendors are
+                            available.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Can you accommodate dietary restrictions?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we work with caterers who can accommodate various dietary restrictions including
+                            allergies, vegetarian, vegan, and gluten-free options. Just let us know in advance.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Do you provide decorations for outdoor parties?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We have experience with both indoor and outdoor party setups. Weather permitting,
+                            outdoor parties can be magical with tents, bouncy castles, and garden games.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Can parents stay during the party?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, parents are always welcome to stay. We ensure there's a comfortable area for adults to
+                            relax while our team entertains the children.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Do you offer entertainment for different age groups?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we tailor entertainment to the age group. For younger children, we have gentle games and
+                            activities. For teens, we offer more sophisticated entertainment like DJs and photo booths.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-content">
+            <h2>Ready to Celebrate?</h2>
+            <p>Let our expert team create a memorable birthday celebration that will be talked about for years to come
+            </p>
+            <div class="cta-buttons">
+                <a href="#pricing" class="btn btn-white">Get Started</a>
+                <a href="index.html#contact" class="btn btn-transparent">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+     <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About Era Services</h3>
+                <p>Welcome to Eraservices - where passion meets precision, and creativity meets craftsmanship. We're not just a service provider. We're your one-stop destination for transforming moments, mending memories, and making spaces more beautiful.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/61587120426819/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/eraservices_/"><i class="fab fa-instagram"></i></a>
+
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="wedding.html">Wedding Planning</a></li>
+                    <li><a href="plumbing.html">Plumbing Services</a></li>
+                    <li><a href="light-fitting.html">Electronic Repair</a></li>
+                    <li><a href="home-interior-designing.html">Home Interior Design</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i>Wadkar Mala, Sai Colony, Hadapsar, Pune, Autadwadi Handewadi, Maharashtra - 411028</p>
+                <p><i class="fas fa-phone"></i>+919045297992</p>
+                <p><i class="fas fa-envelope"></i>info@eraservices.in</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; Eraservices. All rights reserved | Designed & Maintained By: <a
+                    href="https://www.whitedavid23.org"
+                    style="color: var(--primary-color); text-decoration: none;">Whitedavid23 Team</a> |
+                Privacy Policy |
+                Terms of Service</p>
+        </div>
+    </footer>
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <div class="lightbox-content">
+            <img class="lightbox-image" id="lightboxImage" src="" alt="Gallery Image">
+            <div class="lightbox-caption">
+                <h3 id="lightboxTitle"></h3>
+                <p id="lightboxLocation"></p>
+            </div>
+        </div>
+        <div class="lightbox-close" onclick="closeLightbox()">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="lightbox-nav lightbox-next" onclick="changeImage(1)">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" title="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function () {
+            setupEventListeners();
+            setupGalleryData();
+            initGalleryAnimations();
+        });
+
+        // Gallery data
+        const galleryData = [
+            {
+                src: 'https://res.cloudinary.com/df0lalbsd/image/upload/v1770212334/WhatsApp_Image_2026-01-22_at_7.35.06_PM_ucztxz.jpg',
+                title: 'Sweet 10 Celebration',
+                location: 'Pune, 2024'
+            },
+            {
+                src: 'https://res.cloudinary.com/df0lalbsd/image/upload/v1769059219/WhatsApp_Image_2026-01-20_at_3.56.39_AM_v2amok.jpg',
+                title: 'Kids Superhero Party',
+                location: 'Pune, 2024'
+            },
+            {
+                src: 'https://res.cloudinary.com/df0lalbsd/image/upload/v1756200727/1_dkt5uw.jpg',
+                title: 'Princess Birthday',
+                location: 'Pune, 2024'
+            },
+        
+        ];
+
+        let currentImageIndex = 0;
+
+        // Setup gallery data
+        function setupGalleryData() {
+            // This function can be used to fetch gallery data from an API in the future
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Mobile menu (if exists)
+            const mobileMenu = document.getElementById('mobileMenu');
+            const navMenu = document.getElementById('navMenu');
+
+            if (mobileMenu && navMenu) {
+                mobileMenu.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                });
+            }
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Keyboard navigation for lightbox
+            document.addEventListener('keydown', function (e) {
+                if (document.getElementById('lightboxModal').classList.contains('active')) {
+                    if (e.key === 'Escape') {
+                        closeLightbox();
+                    } else if (e.key === 'ArrowLeft') {
+                        changeImage(-1);
+                    } else if (e.key === 'ArrowRight') {
+                        changeImage(1);
+                    }
+                }
+            });
+
+            // Close lightbox when clicking outside the image
+            document.getElementById('lightboxModal').addEventListener('click', function (e) {
+                if (e.target === this) {
+                    closeLightbox();
+                }
+            });
+        }
+
+        // Gallery Animation Initialization
+        function initGalleryAnimations() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            // Intersection Observer for scroll-triggered animations
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        // Get the index from the onclick or data attribute
+                        const items = Array.from(document.querySelectorAll('.gallery-item'));
+                        const itemIndex = items.indexOf(entry.target);
+
+                        // Add staggered delay based on item position
+                        setTimeout(() => {
+                            entry.target.classList.add('animate');
+                        }, itemIndex * 100); // 100ms delay between each item
+
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all gallery items
+            galleryItems.forEach(item => {
+                observer.observe(item);
+            });
+        }
+
+        // Toggle FAQ
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const toggle = element.querySelector('.faq-toggle');
+
+            if (answer.style.maxHeight) {
+                answer.style.maxHeight = null;
+                toggle.classList.remove('active');
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                toggle.classList.add('active');
+            }
+        }
+
+        // Get quote function
+        function getQuote() {
+            showToast('Quote request for birthday party. Our team will contact you soon!', 'success');
+        }
+
+        // Select package function
+        function selectPackage(packageType) {
+            showToast(`${packageType.charAt(0).toUpperCase() + packageType.slice(1)} package selected. Redirecting to checkout...`, 'success');
+            setTimeout(() => {
+                showToast('Checkout page would open here', 'success');
+            }, 2000);
+        }
+
+        // Toast notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = `toast ${type}`;
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Mock modal functions
+        function openLoginModal() {
+            showToast('Login modal would open here', 'success');
+        }
+
+        function openRegisterModal() {
+            showToast('Registration modal would open here', 'success');
+        }
+
+        // Lightbox functions
+        function openLightbox(index) {
+            currentImageIndex = index;
+            updateLightboxImage();
+            const lightboxModal = document.getElementById('lightboxModal');
+            lightboxModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
+        }
+
+        function closeLightbox() {
+            const lightboxModal = document.getElementById('lightboxModal');
+            lightboxModal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+
+        function updateLightboxImage() {
+            const image = galleryData[currentImageIndex];
+            document.getElementById('lightboxImage').src = image.src;
+            document.getElementById('lightboxTitle').textContent = image.title;
+            document.getElementById('lightboxLocation').textContent = image.location;
+        }
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+
+            // Wrap around if we go past the beginning or end
+            if (currentImageIndex < 0) {
+                currentImageIndex = galleryData.length - 1;
+            } else if (currentImageIndex >= galleryData.length) {
+                currentImageIndex = 0;
+            }
+
+            updateLightboxImage();
+        }
+
+        // Back to Top Button Functionality
+        (function () {
+            const backToTopButton = document.getElementById('backToTop');
+
+            if (backToTopButton) {
+                window.addEventListener('scroll', function () {
+                    if (window.pageYOffset > 300) {
+                        backToTopButton.classList.add('show');
+                    } else {
+                        backToTopButton.classList.remove('show');
+                    }
+                });
+
+                backToTopButton.addEventListener('click', function () {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>

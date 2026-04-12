@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronic Services - Era Services Event Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #FF6B35;
+            --secondary-color: #004E89;
+            --accent-color: #F77F00;
+            --dark-color: #1A1A2E;
+            --light-color: #F5F5F5;
+            --text-color: #333;
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background: var(--dark-color);
+            color: white;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .header-top-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .header-main {
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.6rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: var(--light-color);
+            padding: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumb-list {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb-item {
+            color: #666;
+        }
+
+        .breadcrumb-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(247, 127, 0, 0.9)),
+                url('https://picsum.photos/seed/light-fitting-hero/1920/600') center/cover;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-start;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        /* Service Detail */
+        .service-detail {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .service-detail:nth-child(even) {
+            background: var(--light-color);
+        }
+
+        .service-detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .service-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .service-hero-text h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-hero-text p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .service-hero-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .service-features {
+            margin-bottom: 3rem;
+        }
+
+        .service-features h3 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-text p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            height: 250px;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-overlay p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            overflow: hidden;
+        }
+
+        .lightbox.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            padding: 10px;
+            font-size: 1.1rem;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .lightbox-close:hover {
+            color: var(--primary-color);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+        }
+
+        .lightbox-nav:hover {
+            color: var(--primary-color);
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 16px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        .price-table-wrapper {
+            overflow-x: auto;
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .price-table thead {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+        }
+
+        .price-table th,
+        .price-table td {
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .price-table th {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .price-table tbody tr {
+            border-bottom: 1px solid #eee;
+            transition: background 0.3s ease;
+        }
+
+        .price-table tbody tr:hover {
+            background: #fff5f2;
+        }
+
+        .price-table tbody td:last-child {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+
+            .price-table th,
+            .price-table td {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 4rem 0;
+            background: var(--light-color);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .faq-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .faq-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: var(--light-color);
+        }
+
+        .faq-question h3 {
+            color: var(--dark-color);
+            font-size: 1.1rem;
+        }
+
+        .faq-toggle {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .faq-question.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1.5rem;
+            color: #666;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-white:hover {
+            background: var(--light-color);
+        }
+
+        .btn-transparent {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-transparent:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-column p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .service-hero {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .lightbox-nav {
+                font-size: 20px;
+                padding: 10px;
+            }
+
+            .lightbox-prev {
+                left: 10px;
+            }
+
+            .lightbox-next {
+                right: 10px;
+            }
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--dark-color);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 3000;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.success {
+            background: #4CAF50;
+        }
+
+        .toast.error {
+            background: #f44336;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="header-top-content">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> +91 9045297992</span>
+                    <span><i class="fas fa-envelope"></i> info@eraservices.in</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/61587120426819/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/eraservices_/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="./logoo.png" width="120px" height="120px">
+                </a>
+                <nav>
+                    <ul id="navMenu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#gallery">Gallery</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+
+                    </ul>
+                </nav>
+                <div class="mobile-menu" id="mobileMenu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <ul class="breadcrumb-list">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="services.html">Services</a></li>
+                <li class="breadcrumb-item">Electronic Repair</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Electronic Repair Services</h1>
+            <p>Professional electronic repair for all your home appliances. From AC servicing to washing machine repairs, our expert technicians ensure reliable, efficient, and long-lasting performance.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- Service Detail -->
+    <section class="service-detail">
+        <div class="service-detail-container">
+            <div class="service-hero">
+                <div class="service-hero-text">
+                    <h2>Electronic Repair Services</h2>
+                    <p> Era Services offers professional electronic repair at your doorstep.
+                        Our certified technicians handle all kinds of home appliances and electrical
+                        fittings with safety, precision, and care.</p>
+                    <p><i class="fa-solid fa-truck-fast"></i> Free Home Delivery</p>
+                    <div class="hero-buttons">
+                        <a href="index.html#contact" class="btn btn-primary">Book Now</a>
+
+                    </div>
+                </div>
+                <div class="service-hero-image">
+                    <img src="https://res.cloudinary.com/df0lalbsd/image/upload/v1770536030/WhatsApp_Image_2026-02-07_at_3.02.22_PM_tvlx2j.jpg"
+                        alt="Electronic Repair Services">
+                </div>
+            </div>
+            <section id="pricing" style="padding:3rem 0;">
+                <div style="max-width:1200px;margin:auto;padding:0 1rem;">
+                    <h3 style="text-align:center;font-size:2.3rem;color:var(--dark-color);margin-bottom:1rem;">
+                        Electronic Repair Price List
+                    </h3>
+                    <p style="text-align:center;color:#666;margin-bottom:2rem;">
+                        Transparent pricing for all Electronic services
+                    </p>
+
+                    <div class="price-table-wrapper">
+                        <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th>Service</th>
+                                    <th>Price (₹)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Service Charge</td>
+                                    <td>150</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p style="text-align:center;margin-top:1.5rem;color:#777;font-style:italic;">
+                        <i class="fas fa-info-circle"></i> Prices are exclusive of taxes. Custom packages available.
+                    </p>
+                </div>
+            </section>
+
+
+    </section>
+    <section class="service-detail">
+        <div class="service-detail-container">
+            <!-- Services List -->
+            <div class="service-features" id="features">
+                <h3>Our Electronic Repair Services</h3>
+
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Light Fitting</h4>
+                            <p>Installation and repair of LED lights, tube lights, chandeliers, and fixtures.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-fan"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Fan Repair</h4>
+                            <p>Ceiling, table, and exhaust fan repair including motor and regulator issues.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>AC Repair</h4>
+                            <p>AC servicing, gas refill, installation, and cooling problem.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-soap"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Washing Machine Repair</h4>
+                            <p>Repair of fully automatic and semi-automatic washing machines.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-temperature-low"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Fridge Repair</h4>
+                            <p>Refrigerator cooling issues, gas leakage, and compressor repair.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Cooler Repair</h4>
+                            <p>Air cooler motor, pump, wiring, and cooling pad replacement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="gallery-container">
+            <h3 style="text-align: center; font-size: 2rem; color: var(--dark-color); margin-bottom: 2rem;">
+                Electronic Repair Gallery</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item"
+                    data-src="https://res.cloudinary.com/df0lalbsd/image/upload/v1770536030/WhatsApp_Image_2026-02-07_at_3.02.22_PM_tvlx2j.jpg"
+                    data-title="Cooler Repair" data-description="Pune, 2024">
+                    <img src="https://res.cloudinary.com/df0lalbsd/image/upload/v1770536030/WhatsApp_Image_2026-02-07_at_3.02.22_PM_tvlx2j.jpg"
+                        alt="Cooler Repair">
+                    <div class="gallery-overlay">
+                        <h3>Cooler Repair</h3>
+                        <p>Pune, 2024</p>
+                    </div>
+                </div>
+                <div class="gallery-item"
+                    data-src="https://res.cloudinary.com/df0lalbsd/image/upload/v1770536020/WhatsApp_Image_2026-02-07_at_3.03.22_PM_qktj3p.jpg"
+                    data-title="LED Light Installation" data-description="Pune, 2024">
+                    <img src="https://res.cloudinary.com/df0lalbsd/image/upload/v1770536020/WhatsApp_Image_2026-02-07_at_3.03.22_PM_qktj3p.jpg"
+                        alt="LED Light Installation">
+                    <div class="gallery-overlay">
+                        <h3>LED Light Installation</h3>
+                        <p>Pune, 2024</p>
+                    </div>
+                </div>
+                <div class="gallery-item"
+                    data-src="https://res.cloudinary.com/df0lalbsd/image/upload/v1771311361/WhatsApp_Image_2026-02-16_at_4.47.55_AM_baivxc.jpg"
+                    data-title="Electrical Installation" data-description="Pune, 2024">
+                    <img src="https://res.cloudinary.com/df0lalbsd/image/upload/v1771311361/WhatsApp_Image_2026-02-16_at_4.47.55_AM_baivxc.jpg"
+                        alt="Electrical Installation">
+                    <div class="gallery-overlay">
+                        <h3>Electrical Installation</h3>
+                        <p>Pune, 2024</p>
+                    </div>
+                </div>
+                <div class="gallery-item"
+                    data-src="https://res.cloudinary.com/df0lalbsd/image/upload/v1771311317/WhatsApp_Image_2026-02-16_at_4.47.56_AM_1_ds9iez.jpg"
+                    data-title="Electrical Installation 1" data-description="Pune, 2024">
+                    <img src="https://res.cloudinary.com/df0lalbsd/image/upload/v1771311317/WhatsApp_Image_2026-02-16_at_4.47.56_AM_1_ds9iez.jpg"
+                        alt="Electrical Installation 1">
+                    <div class="gallery-overlay">
+                        <h3>Electrical Installation 1</h3>
+                        <p>Pune, 2024</p>
+                    </div>
+                </div>
+                 <div class="gallery-item"
+                    data-src="https://res.cloudinary.com/df0lalbsd/image/upload/v1771311331/WhatsApp_Image_2026-02-16_at_4.47.56_AM_gtld1v.jpg"
+                    data-title="Electrical Installation 2" data-description="Pune, 2025">
+                    <img src="https://res.cloudinary.com/df0lalbsd/image/upload/v1771311331/WhatsApp_Image_2026-02-16_at_4.47.56_AM_gtld1v.jpg"
+                        alt="Electrical Installation 2">
+                    <div class="gallery-overlay">
+                        <h3>Electrical Installation 2</h3>
+                        <p>Pune, 2025</p>
+                    </div>
+                </div>
+                 <div class="gallery-item"
+                    data-src="https://res.cloudinary.com/df0lalbsd/image/upload/v1771311348/WhatsApp_Image_2026-02-16_at_4.47.55_AM_1_qwl6dy.jpg"
+                    data-title="Electrical Installation 3" data-description="Pune, 2025">
+                    <img src="https://res.cloudinary.com/df0lalbsd/image/upload/v1771311348/WhatsApp_Image_2026-02-16_at_4.47.55_AM_1_qwl6dy.jpg"
+                        alt="Electrical Installation 3">
+                    <div class="gallery-overlay">
+                        <h3>Electrical Installation 3</h3>
+                        <p>Pune, 2025</p>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <img src="" alt="Gallery Image" class="lightbox-image" id="lightbox-image">
+            <div class="lightbox-caption">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-description"></p>
+            </div>
+            <span class="lightbox-close" id="lightbox-close">&times;</span>
+            <span class="lightbox-nav lightbox-prev" id="lightbox-prev">&#10094;</span>
+            <span class="lightbox-nav lightbox-next" id="lightbox-next">&#10095;</span>
+            <div class="lightbox-counter" id="lightbox-counter"></div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Do you provide emergency electronic repair services?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer 24/7 emergency electronic repair services with a response time of
+                            under 2 hours
+                            for urgent issues. Our team is always ready to address your appliance emergencies.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Do you service all brands of appliances?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We service all major brands of home appliances including ACs, washing
+                            machines,
+                            refrigerators, coolers, fans, and all types of light fittings regardless of the
+                            manufacturer.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>What is your service area?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We primarily serve Pune and surrounding areas. Our technicians are available for home
+                            visits
+                            and provide free home delivery for repaired appliances.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Are your technicians certified and insured?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, all our technicians are fully certified, trained, and insured. You can have
+                            peace of mind knowing your appliances are in capable hands.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Do you provide maintenance contracts?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer annual maintenance contracts for residential and commercial properties.
+                            Regular maintenance helps prevent costly emergencies and extends the life of your
+                            appliances.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-content">
+            <h2>Need Electronic Repair Services?</h2>
+            <p>Let our expert technicians handle all your appliance repair needs with professionalism and
+                efficiency</p>
+            <div class="cta-buttons">
+                <a href="#pricing" class="btn btn-white">Get Started</a>
+                <a href="index.html#contact" class="btn btn-transparent">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About Era Services</h3>
+                <p>Welcome to Eraservices - where passion meets precision, and creativity meets craftsmanship.
+                    We're not just a service provider. We're your one-stop destination for transforming moments,
+                    mending memories, and making spaces more beautiful.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/61587120426819/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/eraservices_/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="wedding.html">Wedding Planning</a></li>
+                    <li><a href="plumbing.html">Plumbing Services</a></li>
+                    <li><a href="test.html">Electronic Repair</a></li>
+                    <li><a href="home-interior-designing.html">Home Interior Design</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i>Wadkar Mala, Sai Colony, Hadapsar, Pune, Autadwadi
+                    Handewadi, Maharashtra - 411028</p>
+                <p><i class="fas fa-phone"></i>+919045297992</p>
+                <p><i class="fas fa-envelope"></i>info@eraservices.in</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; Eraservices. All rights reserved | Designed & Maintained By: <a
+                    href="https://www.whitedavid23.org"
+                    style="color: var(--primary-color); text-decoration: none;">Whitedavid23 Team</a> |
+                Privacy Policy |
+                Terms of Service</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function () {
+            setupEventListeners();
+            setupLightbox();
+        });
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Mobile menu
+            const mobileMenu = document.getElementById('mobileMenu');
+            const navMenu = document.getElementById('navMenu');
+
+            if (mobileMenu && navMenu) {
+                mobileMenu.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                });
+            }
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Setup lightbox
+        function setupLightbox() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxTitle = document.getElementById('lightbox-title');
+            const lightboxDescription = document.getElementById('lightbox-description');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const lightboxPrev = document.getElementById('lightbox-prev');
+            const lightboxNext = document.getElementById('lightbox-next');
+            const lightboxCounter = document.getElementById('lightbox-counter');
+
+            // Check if all required elements exist
+            if (!lightbox || !lightboxImage || !lightboxTitle || !lightboxDescription ||
+                !lightboxClose || !lightboxPrev || !lightboxNext || !lightboxCounter) {
+                return; // Exit if lightbox elements are missing
+            }
+
+            let currentIndex = 0;
+            const galleryArray = Array.from(galleryItems);
+
+            // Open lightbox when gallery item is clicked
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateLightbox();
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Close lightbox
+            lightboxClose.addEventListener('click', () => {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+
+            // Navigate to previous image
+            lightboxPrev.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + galleryArray.length) % galleryArray.length;
+                updateLightbox();
+            });
+
+            // Navigate to next image
+            lightboxNext.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % galleryArray.length;
+                updateLightbox();
+            });
+
+            // Close lightbox when clicking outside the image
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (lightbox.classList.contains('active')) {
+                    if (e.key === 'Escape') {
+                        lightbox.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    } else if (e.key === 'ArrowLeft') {
+                        currentIndex = (currentIndex - 1 + galleryArray.length) % galleryArray.length;
+                        updateLightbox();
+                    } else if (e.key === 'ArrowRight') {
+                        currentIndex = (currentIndex + 1) % galleryArray.length;
+                        updateLightbox();
+                    }
+                }
+            });
+
+            // Update lightbox content
+            function updateLightbox() {
+                const currentItem = galleryArray[currentIndex];
+                const src = currentItem.getAttribute('data-src');
+                const title = currentItem.getAttribute('data-title');
+                const description = currentItem.getAttribute('data-description');
+
+                lightboxImage.src = src;
+                lightboxTitle.textContent = title;
+                lightboxDescription.textContent = description;
+                lightboxCounter.textContent = `${currentIndex + 1} / ${galleryArray.length}`;
+            }
+        }
+
+        // Toggle FAQ
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const toggle = element.querySelector('.faq-toggle');
+
+            if (answer.style.maxHeight) {
+                answer.style.maxHeight = null;
+                toggle.classList.remove('active');
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                toggle.classList.add('active');
+            }
+        }
+
+        // Get quote function
+        function getQuote() {
+            showToast('Quote request for electronic repair service. Our team will contact you soon!', 'success');
+        }
+
+        // Select package function
+        function selectPackage(packageType) {
+            showToast(`${packageType.charAt(0).toUpperCase() + packageType.slice(1)} package selected. Redirecting to checkout...`, 'success');
+            setTimeout(() => {
+                showToast('Checkout page would open here', 'success');
+            }, 2000);
+        }
+
+        // Toast notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = `toast ${type}`;
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Mock modal functions
+        function openLoginModal() {
+            showToast('Login modal would open here', 'success');
+        }
+
+        function openRegisterModal() {
+            showToast('Registration modal would open here', 'success');
+        }
+    </script>
+</body>
+
+</html>
